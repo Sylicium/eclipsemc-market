@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Market</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2e2e2e;
+            color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3a3a3a;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #4caf50;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #4caf50;
+            font-size: 2.5rem;
+        }
+
+        main {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .item-card {
+            max-width: max(300px, 25vw);
+            background-color: #3a3a3a;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .item-card h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .item-card p {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        .item-card .price {
+            font-weight: bold;
+            color: #ffc107;
+        }
+
+        .item-card .exchange {
+            font-style: italic;
+            color: #f3f3f3;
+        }
+
+        .stock .available {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .stock .out-of-stock {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .bounty-section {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .playerbounty-title {
+            color: #f44336;
+            text-align: center;
+            font-size: 2em;
+            padding-top:15px;
+        }
+
+        .bounty {
+            max-width: max(300px, 25vw);
+            background-color: #3a3a3a;
+            border: 2px solid #af4c4c;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .bounty p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #3a3a3a;
+            padding: 10px;
+            text-align: center;
+            border-top: 3px solid #4caf50;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .market-title {
+            text-align: center;
+            color: #4caf50;
+            font-size: 2rem;
+            margin: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ASKO Market</h1>
+    </header>
+
+    
+    <h1 class="playerbounty-title">Player Bounties</h1>
+
+    <section class="bounty-section" id="bounty-list">
+        <h1>Loading ...</h1>
+        <!--
+        <div class="bounty">
+            <p><strong>Target:</strong> <span style="color: #ffc107;">Player123</span></p>
+            <p><strong>Requested By:</strong> HunterX</p>
+            <p><strong>Bounty:</strong> <span style="font-size: 1.5rem; color: #ffc107;">$5000</span></p>
+            <p><strong>Note:</strong> Bring proof of elimination!</p>
+        </div>
+        <div class="bounty">
+            <p><strong>Target:</strong> <span style="color: #ffc107;">RivalPlayer</span></p>
+            <p><strong>Requested By:</strong> SniperElite</p>
+            <p><strong>Bounty:</strong> <span style="font-size: 1.5rem; color: #ffc107;">$8000</span></p>
+            <p><strong>Note:</strong> Must collect their enchanted diamond sword.</p>
+        </div>-->
+    </section>
+
+    <h1 class="market-title">Market</h1>
+
+    <main id="market-list">
+        <h1>Loading ...</h1>
+        <!--
+        <div class="item-card">
+            <h2>Golden Apples (x8)</h2>
+            <p class="price">Price: $800</p>
+            <p class="stock">Stock: <span class="available">2</span></p>
+        </div>
+        <div class="item-card">
+            <h2>Shulker Box (x1)</h2>
+            <p class="price">Price: $5000</p>
+            <p class="stock">Stock: <span class="available">3</span></p>
+        </div>
+        <div class="item-card">
+            <h2>Ender Pearls (x16)</h2>
+            <p class="price">Price: $400</p>
+            <p class="stock">Stock: <span class="out-of-stock">Available</span></p>
+        </div>
+    -->
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ASKO Market. All rights reserved.</p>
+        <p>Not affiliated with Mojang or eclipsemc.top</p>
+    </footer>
+
+
+    <script src="/assets/script.js"></script>
+</body>
+</html>
