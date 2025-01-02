@@ -26,14 +26,15 @@
             e.classList.add('bounty');
             e.classList.add(`bounty-id-${bounty.id}`);
             e.innerHTML = `
+                <p><strong>Bounty:</strong> <span style="font-size: 1.5rem; color: #ffc107;">$<span class="data-reward">Loading...</span></span></p>
                 <p><strong>Target:</strong> <span class="data-target" style="color: #ffc107;">Loading...</span></p>
                 <p><strong>Requested By:</strong> <span class="data-author">Loading...</span></p>
-                <p><strong>Bounty:</strong> <span style="font-size: 1.5rem; color: #ffc107;">$<span class="data-reward">Loading...</span></span></p>
                 <p><strong>Note:</strong>&nbsp;<span class="data-note">Loading...</span></p>
             `
             e.querySelector('.data-target').innerText = bounty.target;
             e.querySelector('.data-author').innerText = bounty.author;
-            e.querySelector('.data-reward').innerText = bounty.reward;
+            // Format reward like: 1000 -> 1k
+            e.querySelector('.data-reward').innerText = bounty.reward.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             e.querySelector('.data-note').innerText = bounty.note;
             return e;
         },

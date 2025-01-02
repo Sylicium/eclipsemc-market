@@ -84,12 +84,13 @@ app.get('/api/block-market', (_req, res) => {
 })
 
 app.get('/', (_req, res) => {
+    console.log(`GET /`);
     res.sendFile(path.join(publicPath, 'index.html'));
-
 })
 
 
 app.all('*', (_req, res): void => {
+    console.log(`${_req.method} ${_req.path}`);
     if(_req.path.startsWith('/api')) {
         handleApi(_req, res);
         return
