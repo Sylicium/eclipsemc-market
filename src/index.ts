@@ -126,7 +126,7 @@ app.get('/', (_req, res) => {
 
 
 app.all('*', (_req, res): void => {
-    console.log(`${_req.method} ${_req.path}`);
+    console.log(`[*] ${_req.method} ${_req.path}`);
     if(_req.path.startsWith('/api')) {
         handleApi(_req, res);
         return
