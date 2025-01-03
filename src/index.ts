@@ -36,7 +36,7 @@ app.get('/api/bounty/delete/:id', (req, res) => {
     })
 })
 
-app.get('/api/bounty/add', (req, res) => {
+app.get('/api/bounty/add', (_req, res) => {
     res.send({
         status: 200,
         message: "Add Market Item",
@@ -94,7 +94,7 @@ app.post('/api/bounty/add', (req, res) => {
 })
 
 
-app.get('/api/market/add', (req, res) => {
+app.get('/api/market/add', (_req, res) => {
     res.send({
         status: 200,
         message: "Add Market Item",
