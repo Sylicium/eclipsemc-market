@@ -24,12 +24,13 @@
             */
             let e = document.createElement('div');
             e.classList.add('bounty');
-            e.classList.add(`bounty-id-${bounty.id}`);
+            e.classList.add(`bounty-id-${bounty._id}`);
             e.innerHTML = `
                 <p><strong>Bounty:</strong> <span style="font-size: 1.5rem; color: #ffc107;">$<span class="data-reward">Loading...</span></span></p>
                 <p><strong>Target:</strong> <span class="data-target" style="color: #ffc107;">Loading...</span></p>
                 <p><strong>Requested By:</strong> <span class="data-author">Loading...</span></p>
                 <p><strong>Note:</strong>&nbsp;<span class="data-note">Loading...</span></p>
+                <p><strong>ID:</strong> <span class="data-id">${bounty._id.toUpperCase()}</span></p>
             `
             e.querySelector('.data-target').innerText = bounty.target;
             e.querySelector('.data-author').innerText = bounty.author;
@@ -50,7 +51,7 @@
             */
             let e = document.createElement('div');
             e.classList.add('item-card');
-            e.classList.add(`marketitem-id-${marketItem.id}`);
+            e.classList.add(`marketitem-id-${marketItem._id}`);
             e.innerHTML = `
             <h2><span class="data-item">Loading...</span> (x<span class="data-quantity">?</span>)</h2>
             <p class="price">Price: $<span class="data-price">???</span></p>

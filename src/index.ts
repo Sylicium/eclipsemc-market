@@ -64,11 +64,19 @@ app.post('/api/bounty/add', (req, res) => {
         // Check types to validate user input
         // Allow only letters, numbers, and special characters
         const onlyChars = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/;
+        const onlyCharsAndSpace = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-\s]+$/;
 
-        if(!target.match(onlyChars) || !author.match(onlyChars) || !note.match(onlyChars)) {
+        const checks = {
+            target: target.match(onlyChars),
+            author: author.match(onlyChars),
+            note: note.match(onlyCharsAndSpace)
+        }
+
+        if(!checks.target || !checks.author || !checks.note) {
             res.send({
                 status: 400,
-                message: "Invalid Data"
+                message: "Invalid Data",
+                checks: [checks.target, checks.author, checks.note]
             })
             return;
         }

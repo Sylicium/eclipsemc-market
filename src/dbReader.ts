@@ -111,7 +111,7 @@ class DBReader_class {
         note: string,
     }) {
         let _bounty = {
-            _id: SF.Random.randHex(8),
+            _id: SF.Random.randHex(6),
             ...bounty
         }
         this.data.bounties.push(_bounty);
@@ -126,7 +126,7 @@ class DBReader_class {
         stock: number,
     }) {
         let _item = {
-            _id: SF.Random.randHex(8),
+            _id: SF.Random.randHex(6),
             ...item
         }
         this.data.market.push(_item);
