@@ -36,42 +36,77 @@ app.get('/api/bounty/delete/:id', (req, res) => {
     })
 })
 
-app.post('/api/bounty/add', (req, res) => {
-    const { target, author, reward, note } = req.body;
-    if(!target || !author || !reward || !note) {
-        // return invalid datas
-        res.send({
-            status: 400,
-            message: "Invalid Data"
-        })
-        return;
-    }
-
-    // Check types to validate user input
-    // Allow only letters, numbers, and special characters
-    const onlyChars = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/;
-
-    if(!target.match(onlyChars) || !author.match(onlyChars) || !note.match(onlyChars)) {
-        res.send({
-            status: 400,
-            message: "Invalid Data"
-        })
-        return;
-    }
-
-    Database.addBounty({
-        target,
-        author,
-        reward,
-        note
-    });
+app.get('/api/bounty/add', (req, res) => {
     res.send({
         status: 200,
-        message: "Bounty Added"
+        message: "Add Market Item",
+        format: {
+            target: "string",
+            author: "string",
+            reward: "number",
+            note: "string",
+        }
     })
+    return;
+})
+app.post('/api/bounty/add', (req, res) => {
+    try {
+        const { target, author, reward, note } = req.body;
+        if(!target || !author || !reward || note == null) {
+            // return invalid datas
+            res.send({
+                status: 400,
+                message: "Invalid Data"
+            })
+            return;
+        }
+
+        // Check types to validate user input
+        // Allow only letters, numbers, and special characters
+        const onlyChars = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/;
+
+        if(!target.match(onlyChars) || !author.match(onlyChars) || !note.match(onlyChars)) {
+            res.send({
+                status: 400,
+                message: "Invalid Data"
+            })
+            return;
+        }
+
+        Database.addBounty({
+            target,
+            author,
+            reward,
+            note
+        });
+        res.send({
+            status: 200,
+            message: "Bounty Added"
+        })
+    } catch(e) {
+        console.log(e);
+        res.send({
+            status: 500,
+            message: "Internal Server Error"
+        })
+    }
 
 })
 
+
+app.get('/api/market/add', (req, res) => {
+    res.send({
+        status: 200,
+        message: "Add Market Item",
+        format: {
+            item: "string",
+            price: "number",
+            quantity: "number",
+            stock: "number",
+        }
+    })
+    return;
+})
 app.post('/api/market/add', (req, res) => {
     console.log(`[/api/market/add] POST /api/market/add`, req.body);
     const { item, price, quantity, stock } = req.body;
