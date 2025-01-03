@@ -11,6 +11,7 @@ import { Database } from './dbReader.js';
 const __dirname = path.resolve(path.dirname(".")) // From were the script is run
 
 const app = express();
+app.use(express.json());
 
 const publicPath = path.resolve(__dirname, 'public');
 console.log("__dirname", __dirname);
@@ -72,6 +73,7 @@ app.post('/api/bounty/add', (req, res) => {
 })
 
 app.post('/api/market/add', (req, res) => {
+    console.log(`[/api/market/add] POST /api/market/add`, req.body);
     const { item, price, quantity, stock } = req.body;
     if(!item || !price || !quantity || !stock) {
         // return invalid datas
