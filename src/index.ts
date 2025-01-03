@@ -71,6 +71,42 @@ app.post('/api/bounty/add', (req, res) => {
 
 })
 
+app.post('/api/market/add', (req, res) => {
+    const { item, price, quantity, stock } = req.body;
+    if(!item || !price || !quantity || !stock) {
+        // return invalid datas
+        res.send({
+            status: 400,
+            message: "Invalid Data"
+        })
+        return;
+    }
+
+    // Check types to validate user input
+    // Allow only letters, numbers, and special characters
+    const onlyChars = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/;
+
+    if(!item.match(onlyChars)) {
+        res.send({
+            status: 400,
+            message: "Invalid Data"
+        })
+        return;
+    }
+
+    Database.addMarketItem({
+        item,
+        price,
+        quantity,
+        stock
+    });
+    res.send({
+        status: 200,
+        message: "Item Added"
+    })
+
+})
+
 app.get('/api/bounty', (_req, res) => {
     res.send(Database.getBounties());
 })
